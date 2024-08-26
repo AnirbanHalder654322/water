@@ -29,7 +29,7 @@ func ioctl(fd uintptr, request uintptr, argp uintptr) error {
 }
 
 func setupFd(config Config, fd uintptr) (name string, err error) {
-	var flags uint16 = cIFFNOPI
+	var flags uint16 = 0
 	if config.DeviceType == TUN {
 		flags |= cIFFTUN
 	} else {
